@@ -1,0 +1,196 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row"> 
+		<%- include("sidebar") %>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <% if (blog.image) { %>
+                    <img class="img-responsive" src="<%= blog.image %>">
+               <% } else{ %>
+                    <img class="img-responsive" src="../Images/default.png">
+                <% }  %>
+               
+                <div class="caption-full">
+					<div class="ui inline dropdown pull-right">
+    <i class="ui share alternate icon"></i>
+    
+    <div class="menu">
+      <div class="item">
+        <a href="" id="fb_share"><i class="ui large facebook icon"></i></a>
+      </div>
+      <div class="item">
+       <a href="" id="gmail_share"><i class="ui red large google icon"></i></a>
+      </div>
+      <div class="item">
+        <a href="" id="wp_share"><i class="ui green large whatsapp icon"></i></a>
+      </div>
+      <div class="item">
+        <a href="" id="twt_share"><i class="ui large twitter icon"></i></a>
+      </div>
+     
+    </div>
+  </div>
+                    <div class="ui large blue labels">
+                        <a class="ui label"><%=blog.name%></a>
+                    </div>
+					
+                    
+                    <p class="tcontent"><%= blog.description %></p>
+                    <p>
+                         <div>
+                     <i class="street view icon"></i>
+                     <em class="h5">Submitted By <%= blog.author.username %></em>
+							 						<div class="pull-right">
+    <form action="/blogs/<%= blog._id %>/like" method="POST">
+        <div class="btn-group">
+            <% if (currentUser && blog.likes.some(function (like) {
+                return like.equals(currentUser._id)
+            })) { %>
+                <button  class="ui small button" style="background: none; color: steelblue;">
+                    <i class="ui thumbs up icon"></i>
+                </button>
+            <% } else { %>
+                <button  class="ui small button" style="background: none;">
+                    <i class="ui thumbs up outline icon"></i>
+                </button>
+            <% } %>
+        </div>
+    </form>
+</div>
+
+<div class="pull-right">
+    <form action="/blogs/<%= blog._id %>/bookmark" method="POST">
+        <div class="btn-group">
+            <% if (currentUser && blog.bookmarks.some(function (bookmark) {
+                return bookmark.equals(currentUser._id)
+            })) { %>
+                <button class="ui small button" style="background: none; color: #FFDF00;">
+                    <i class="ui bookmark icon"></i> 
+                </button>
+            <% } else { %>
+                <button class="ui small button" style="background: none;">
+                    <i class="ui bookmark outline icon"></i>
+                </button>
+            <% } %>
+        </div>
+    </form>
+</div>
+                         </div>  
+
+                        <div class="meta">
+                             <span><div class="ui label">
+                               <%= moment(blog.created).fromNow() %>
+                                 </div>
+                            </span>
+                        </div>
+					 					<div class="text-center">
+    <a href="#" data-toggle="modal"
+                    data-target="#blogLikes" style="text-decoration:none;"><i class="ui thumbs up outline icon" ></i> (<%= blog.likes.length %>)
+            </a>
+</div>
+                    </p>
+				
+                    <% if(currentUser && blog.author.id && blog.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+                        <a class="btn btn-md btn-warning" href="/blogs/<%= blog._id %>/edit">Edit</a>
+                        <button class="ui orange button gh pull-right">
+                     Delete
+                   </button>
+                    <% }%>
+                </div>
+            </div>
+		<div class="ui mini basic modal del">
+  <div class="ui icon header">
+    <i class="archive icon"></i>
+      <%=blog.name%>
+  </div>
+  <div class="content">
+    <p>Are you sure want to delete your blog?</p>
+  </div>
+  <div class="actions">
+    
+        <a class="ui red basic cancel inverted button" href="/blogs/<%= blog._id %>">
+           
+      No 
+        </a>
+    
+
+
+
+ <form style="display: inline" class="pull-right" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                            <button class="ui green ok inverted button">Delete
+                            </button>
+                        </form>
+    </div>
+     
+</div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/blogs/<%= blog._id %>/comments/new"><i class="ui big comments outline icon"></i></a>
+                </div>
+                <hr>
+                <% blog.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="ui label">
+                     <i class="user outline icon"></i>
+                                
+                     <strong><%= comment.author.username %></strong>
+                         </a>        
+                            <span class="pull-right"><%= moment(comment.created).fromNow() %></span>
+                            <p class="tcontent">
+                                <%= comment.text %> 
+                            </p>
+							<hr>
+                        <% if(currentUser && comment.author.id && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+                            <a class="btn btn-xs btn-warning" 
+                               href="/blogs/<%=blog._id %>/comments/<%=comment._id %>/edit">Edit</a>
+                            <form style="display: inline" action="/blogs/<%=blog._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                            </form>
+                            
+                        <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Campground Likes Modal -->
+<div id="blogLikes" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><%=blog.name %>: <%= blog.likes.length %></h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Liked by:</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% blog.likes.forEach(function(like) { %>
+                        <tr>
+                            <td><i class="ui user circle icon"></i> <%= like.username %></td>
+                        </tr>
+                    <% }); %>
+                    <% if (blog.likes.length === 0) { %>
+                        <tr>
+                            <td><em>No likes yet.</em></td>
+                        </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include("../partials/footer") %>

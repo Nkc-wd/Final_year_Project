@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Edit your Feedback</h1>
+        <div style="width: 80%; margin: 25px auto;">
+            <form action="/feedbacks/<%= feedback._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+					<textarea rows="7" class="form-control" type="text" name="feedback[text]"><%= feedback.text %></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="ui teal button btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/feedbacks">Go Back</a>
+        </div>
+    </div>
+</div>
+<%- include("../partials/footer") %>

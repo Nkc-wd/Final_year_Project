@@ -1,0 +1,30 @@
+
+<%- include("./partials/header") %>
+   <div class="ui container raised segment" style="margin-top:30px; width:300px;">
+    <div class="small image content">
+    <img class="ui small image" src="https://image.shutterstock.com/image-vector/sign-blue-3d-realistic-paper-260nw-226984924.jpg">
+</div>
+<form class="ui small form" style="margin-top:20px;" action="/register" method="post">
+  <div class="field">
+    <label>User name</label>
+    <input type="text" name="username" placeholder="Username">
+  </div>
+	 <div class="field">
+    <label>E-mail</label>
+    <input type="email" name="email" placeholder="Enter Your Registered E-mail">
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <input type="password" name="password" placeholder="Password">
+  </div>
+  <div class="actions">
+    <button class="ui positive right labeled icon button" type="submit">
+		Sign up
+    </button>
+    <a class="ui primary button" href="/login">
+		  Log in!
+	  </a>
+  </div>
+</form>
+  </div>
+<%- include("./partials/footer") %>

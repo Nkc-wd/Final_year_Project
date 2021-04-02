@@ -1,0 +1,46 @@
+<%- include("../partials/header") %>
+<div class="ui container raised segment" style="margin-top:30px; width:30%;">
+    <div class="image content">  
+    <img class="ui small image" src="https://www.ginesys.in/sites/default/files/blogs/image/edit1.png">
+</div>
+	  <h1 style="text-align: center">
+		 <hr>
+		 <div class="ui big compact menu">
+  <a class="item">
+    <%= blog.name %>
+  </a>
+		  </div></h1>
+<form class="ui small form" style="margin-top:20px;" action="/blogs/<%= blog._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <div class="field">
+	  <label for=blogname>Your blog name</label>
+    <input type="text" id="blogname" name="blog[name]" value="<%= blog.name %>">
+  </div>
+  <div class="field">
+	 <label for="image">New Image</label>
+      <input type="file" id="image" name="image" accept="image/*">
+	  <br>
+	  <label for="imagelink" class="text-center">OR image url</label>
+	      <div class="ui mini pointing below red basic label">
+       This is your uploaded image url if you want change then update it else leave
+			  
+          </div>
+	  <input type="text" id="imagelink" name="blog[image]" value="<%= blog.image%>">
+  </div>
+	 <div class="field">
+		 <label for=yourdes>Your blog</label>
+		 <textarea type="text" id="yourdesc" name="blog[description]"><%= blog.description %></textarea>
+  </div>
+
+  <div class="actions">
+	  <a class="ui teal button" href="/blogs/<%= blog._id %>">
+		 Go back!
+	  </a>
+    <button class="ui positive right labeled icon button" type="submit">
+		Submit
+		<i class="checkmark icon"></i>
+	  </button>
+  </div>
+</form>
+  </div>
+
+<%- include("../partials/footer") %>

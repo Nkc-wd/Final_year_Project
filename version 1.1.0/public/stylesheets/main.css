@@ -1,0 +1,103 @@
+
+
+.ui.modal { position: relative;} 
+
+.ui.cards>.card {
+    width: fit-content;
+}
+.popup {
+  max-height: 50px;
+  overflow: auto;
+}
+i.icon { 
+    font-size: 2em;
+}
+.jumbotron{
+	margin-top:30px;
+	background-color: #ffffff;
+}
+.indeximg { 
+min-height: 200px;
+height: 50px;
+min-width: 250px; 
+}
+.indexname{
+	font-family: 'Tangerine', cursive;
+	font-size:40px;
+}
+.indexpera{
+	font-family: 'Special Elite', cursive;
+	font-size:40px;
+}
+.container.main {
+    margin-top: 7.0em;
+}
+.thumbnail img {
+    width: 100%;
+}
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+.tcontent{
+  font-family: 'Roboto Condensed', sans-serif;
+  white-space: pre-line;
+  white-space: pre-wrap;	
+}
+footer{
+    background:url(https://images.unsplash.com/photo-1533628635777-112b2239b1c7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9);
+    width: 100%;
+    height:30%;
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  margin-top: 70px;
+}
+.fcont{
+  position:static; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding:10px;
+  text-align:center;
+  margin-bottom:0px;
+}
+            .co{
+    font-family: 'Girassol', cursive;
+    padding-top:50px;
+    text-align:center;
+    font-size:25px;
+               }
+               .footag{
+    font-family: 'Girassol', cursive;
+    text-align:center;
+    font-size:25px;
+    bottom:5px;
+    word-spacing:40px;
+}
+.spaneff{
+    word-spacing:normal;
+}
+.footico{
+    text-align:center;
+    word-spacing:50px;
+    margin:10px;
+}
+.fico:hover{
+    color:steelblue;
+}
+.ficow:hover{
+    color:#3FF747;
+}
+.ficom:hover{
+    color:red;
+}
+.ficoi:hover{
+    color:#973267;
+}

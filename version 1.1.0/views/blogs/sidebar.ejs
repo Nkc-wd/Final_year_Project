@@ -1,0 +1,20 @@
+
+<div class="col-md-3 hidden-sm hidden-xs">
+	<div class="ui raiser segment" style=" background-color:#efefff;max-height:550px;overflow-y: auto;overflow-x: hidden;">
+<% blogs.forEach(function(blog){ %>                 
+
+       
+  <a href="/blogs/<%= blog._id %>">
+  <div class="ui labeled input">
+  <div class="ui tiny  image">
+   <img src="<%= blog.image %>">
+  </div>
+       <div class="ui container"><span style="color:steelblue"><%= blog.name %></span><br><%- blog.description.substring(0,20) %><br><%- blog.description.substring(20,42) %><br><%- blog.description.substring(42,62) %>....</div> 
+</div>
+</a>
+<hr style="border-color:#babaca;">
+
+	 <% }) %>
+ </div>
+	</div>
+  

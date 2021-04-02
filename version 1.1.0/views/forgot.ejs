@@ -1,0 +1,26 @@
+<%- include("./partials/header") %>
+     <h4 class="text-center">
+	    <div class="ui warning message text-center" style="display: inline-block">
+         <i class="small close icon"></i>
+             <div class="header">
+           If you forgot Your username then also follow this step
+				 <br> you will receive your username after successfully change your password 
+         </div>
+        </div>				 
+</h4>
+<div class="ui container raised segment" style="margin-top:30px; width:300px;">
+    <div class="small image content">
+    <img class="ui small image" src="https://cdn.dribbble.com/users/510353/screenshots/6419683/forgotpassword_2x.jpg">
+	</div>
+		<form class="ui small form" style="margin-top:20px;" action="/forgot" method="POST">
+			<legend>Forgot Password</legend>
+			<div class="field">
+				<label for="email">Enter Your registered E-mail Address</label>
+				<input type="email" name="email" autofocus class="form-control">
+			</div>
+			<div class="field">
+				<input type="submit" class="btn btn-primary" value="Reset Password">
+			</div>
+		</form>
+	</div>
+<%- include("./partials/footer") %>

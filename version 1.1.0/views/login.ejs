@@ -1,0 +1,29 @@
+<%- include("./partials/header") %>
+
+<div class="ui container raised segment" style="margin-top:30px; width:300px;">
+    <div class="small image content">
+    <img class="ui small image" src="https://www.freeiconspng.com/uploads/client-login-icon-4.gif">
+</div>
+<form class="ui small form" style="margin-top:20px;" action="/login" method="POST">
+  <div class="field">
+    <label>User name</label>
+    <input type="text" name="username" placeholder="Your Username">
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <input type="password" name="password" placeholder="Your Password">
+  </div>
+  <div class="actions">
+    <button class="ui positive right button" type="submit">
+		Log in
+    </button>
+    <a class="ui primary button" href="/register">
+		  Sign up!
+	  </a>
+  </div>
+	<br>
+	<a href="/forgot">Forgot password ?</a>
+</form>
+  </div>
+
+<%- include("./partials/footer") %>

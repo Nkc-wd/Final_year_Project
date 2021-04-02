@@ -1,0 +1,45 @@
+<%- include("./partials/header") %>
+    <h2 class="text-center">
+		This is System Administrator center <hr> </h2>
+                 <h4 class="text-center">
+	    <div class="ui warning message text-center" style="display: inline-block">
+         <i class="small close icon"></i>
+             <div class="header">
+           If you are a user then you are not allowed
+         </div>
+        </div>				 
+</h4>
+			  
+			
+   <div class="ui container raised segment" style="margin-top:20px; width:300px;">
+    <div class="small image content">
+    <img class="ui small image" src="https://www.logolynx.com/images/logolynx/23/23938578fb8d88c02bc59906d12230f3.png">
+</div>
+<form class="ui small form" style="margin-top:4px;" action="/admin" method="post">
+  <div class="field">
+    <label>Admin user</label>
+    <input type="text" name="username" placeholder="username">
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <input type="password" name="password" placeholder="password">
+  </div>
+	<div class="field">
+    <label>E-mail</label>
+    <input type="email" name="email" placeholder="Enter Your Registered E-mail">
+  </div>
+	<div class="field">
+    <label>Admin code :( secret code )</label>
+    <input type="password" name="adminCode" placeholder="Admin code">
+  </div>
+  <div class="actions">
+	  <a class="ui primary button" href="/login">
+		  Log in!
+	  </a>
+    <button class="ui positive right labeled icon button" type="submit">
+		Submit
+	  </button>
+  </div>
+</form>
+  </div>
+<%- include("./partials/footer") %>

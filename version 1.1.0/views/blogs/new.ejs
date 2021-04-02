@@ -1,0 +1,35 @@
+<%- include("../partials/header") %>
+<div class="ui container raised segment" style="margin-top:30px; width:30%;">
+    <div class="image content">
+    <img class="ui large image" src="https://www.tots100.co.uk/wp-content/uploads/2018/02/Is-Your-Blog-Due-for-an-Update-1-252x167@2x.jpg">
+</div>
+<form class="ui large form" style="margin-top:30px;" action="/blogs" method="POST" enctype="multipart/form-data">
+  <div class="field">
+	  <label for="name">Your blog name</label>
+    <input type="text" id="name" name="name" placeholder="name">
+  </div>
+  <div class="field">
+	 <label for="image">Image</label>
+     <input type="file" id="image" name="image" accept="image/*">
+	  <br>
+	  <label for="imagelink" class="text-center">OR image url</label>
+	  <input type="text" id="imagelink" name="image" placeholder="image url">
+  </div>
+	 <div class="field">
+		 <label for="blog">Your blog</label>
+		 <textarea type="text" id="blog" name="description" placeholder="description"></textarea>
+  </div>
+
+  <div class="actions">
+	  <a class="ui teal button" href="/blogs">
+		 Go back!
+	  </a>
+    <button class="ui positive right labeled icon button" type="submit">
+		Submit
+		<i class="checkmark icon"></i>
+	  </button>
+  </div>
+</form>
+  </div>
+
+<%- include("../partials/footer") %>

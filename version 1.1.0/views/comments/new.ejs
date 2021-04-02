@@ -1,0 +1,32 @@
+<%- include("../partials/header") %>
+
+ <div class="ui container raised segment" style="margin-top:30px; width:300px;">
+    <div class="small image content">
+    <img class="ui small image" src="https://brianscode.com/wp-content/uploads/2017/11/37145_Comment-300x285.png">
+</div>
+	 <h1 style="text-align: center">Add New Comment
+		 <hr>
+		 
+		 <div class="ui big compact menu">
+  <a class="item">
+    <%= blog.name %>
+  </a>
+</div>
+</h1>
+<form class="ui large form" style="margin-top:10px;" action="/blogs/<%= blog._id %>/comments" method="POST">
+  <div class="field">
+    <label>Your Comment</label>
+    <textarea type="text" name="comment[text]" placeholder="Comment Here"></textarea>
+  </div>
+  <div class="actions">
+      <a class="ui primary button" href="/blogs/<%= blog._id %>">
+          Go back!
+      </a>
+    <button class="ui positive right labeled icon button" type="submit">
+        Submit
+        <i class="checkmark icon"></i>
+      </button>
+  </div>
+</form>
+  </div>
+<%- include("../partials/footer") %>

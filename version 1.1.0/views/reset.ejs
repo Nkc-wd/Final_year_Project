@@ -1,0 +1,21 @@
+<%- include("./partials/header") %>
+<div class="ui container raised segment" style="margin-top:30px; width:300px;">
+    <div class="small image content">
+    <img class="ui small image" src="https://cdn.dribbble.com/users/510353/screenshots/6419683/forgotpassword_2x.jpg">
+	</div>
+		<form  class="ui small form" style="margin-top:20px;" action="/reset/<%= token %>" method="POST">
+		  <legend>Reset Password</legend>
+		  <div class="field">
+		    <label for="password">Your New Password</label>
+		    <input type="password" name="password" value="" placeholder="New password" autofocus="autofocus" class="form-control"/>
+		  </div>
+		  <div class="field">
+		    <label for="confirm">Confirm Your Password</label>
+		    <input type="password" name="confirm" value="" placeholder="Confirm password" class="form-control"/>
+		  </div>
+		  <div class="field">
+		    <button type="submit" class="btn btn-primary">Update Password</button>
+		  </div>
+		</form>
+	</div>
+<%- include("./partials/header") %>
